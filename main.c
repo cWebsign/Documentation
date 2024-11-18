@@ -17,9 +17,13 @@ void *DesignIndex(cWS *web, cWR *request, int socket) {
 	Control header = (Control){ .Tag = HEAD_TAG };
 	Control title = (Control){ .Tag = TITLE_TAG, .Text = "cLib+ Web Server | cWD Framework\0" };
 
-	/* Create a Control *[] array starting with the */
+	/* Create a Control *[] array starting with the Main parents */
 	Control *header_controls[] = {&header, &title, NULL};
+
+	/* Construct the design for the output */
 	String header_html = ConstructDesign(header_controls);
+
+	/* Repeat of the above for the body */
 
 	Control body = (Control){ .Tag = BODY_TAG, .CSS = (char **)BODY_CSS};
 
@@ -37,9 +41,11 @@ void *DesignIndex(cWS *web, cWR *request, int socket) {
 
 	String resp = ConstructDesign(body_design);
 
+	/* Output to Web (Console for testing) */
 	printf("<html>%s%s</html>\n", header_html.data, resp.data);
 }
 
+/* Handler test for Web Server */
 void *IndexHandler(cWS *web, cWR *request, int socket) {
 	String resp = NewString("<html><head><title>MyPage</title></head><body>cLib+ WebServer By Algo1337</body></html>\r\n");
 	
