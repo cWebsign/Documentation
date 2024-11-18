@@ -6,6 +6,7 @@ dependencies:
 	pm -i str
 	pm -i arr
 	pm -i Net
+	pm -i map
 
 	mv /usr/local/lib/Net/* /usr/local/lib/
 	ldconfig
