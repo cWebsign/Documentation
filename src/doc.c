@@ -4,13 +4,8 @@
 
 #include "../main.h"
 
-#include <str.h>
-#include <map.h>
-#include <Net/web.h>
-
-/* Handler test for Web Server */
-void *IndexHandler(cWS *web, cWR *r, WebRoute *route, int socket) {
-	String template = DesignIndex(web, r, route, socket);
+void DocHandler(cWS *web, cWR *r, WebRoute *route, int socket) {
+	String template = DesignDoc(web, r, route, socket);
 
 	if(template.idx < 2)
 		printf("Failed\n");

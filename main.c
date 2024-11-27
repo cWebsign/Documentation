@@ -14,15 +14,27 @@ void err_n_exit(const char *msg) { printf("%s\n", msg); exit(0); }
 int main() {
 	IP = NewString("");
 	cWS *api = StartWebServer(IP, 80, 0);
-	api->CFG.Err404 = "Dick n Balls";
-	AddRoute(api, (WebRoute){
-		.Name 		= "index",
-		.Path 		= "/",
-		.Handler 	= IndexHandler,
-		.Generator 	= DesignIndex,
-	});
 	if(!api)
 		err_n_exit("[ x ] Error, Unable to start web server....!\n");
+
+	api->CFG.Err404 = "Err404";
+	AddRoutes(api, (WebRoute *[]){
+		&(WebRoute){
+			.Name 		= "index",
+			.Path 		= "/",
+			.Handler 	= IndexHandler,
+			.Generator 	= DesignIndex,
+			.InlineCSS 	= 0
+		},
+		&(WebRoute){
+			.Name 		= "documentation",
+			.Path 		= "/doc",
+			.Handler 	= DocHandler,
+			.Generator 	= DesignDoc,
+			.InlineCSS 	= 0
+		},
+		NULL
+	});
 
 	printf("Loaded %ld Routes...!\n", api->CFG.RouteCount);
 	api->Run(api, 999, NULL);
