@@ -68,7 +68,7 @@ String DesignIndex(cWS *web, cWR *request, WebRoute *route, int socket) {
 	Control coming_soon = (Control){ .Tag = BODY_TAG, .CSS = (char **)BODY_CSS, .SubControls = (void *[]){
 			&(Control){ .Tag = DIV_TAG, .CSS = (char **)COMING_SOON_CSS, .SubControls = (void *[]){
 					&(Control){ .Tag = H1_TAG, .Text = "cLib+ C Extension", .CSS = (char *[]){"color: #fff;", "font-size: 25px", "margin-left: 50%", NULL} },
-					&(Control){ .Tag = A_TAG, .href = "https://discord.gg/4wJbTaRTHB", .SubControls = (void *[]){
+					&(Control){ .Tag = A_TAG, .href = "https://discord.gg/4wJbTaRTHB", .CSS = (char *[]){"text-decoration: none;", NULL}, .SubControls = (void *[]){
 							&(Control){  .Tag = DIV_TAG, .Type = NULL, .SubControls = (void *[]){
 									&(Control){ .Tag = P_TAG, .Type = NULL, .Text = "Join our discord for daily updates! Join Now", .CSS = (char *[]){"color: #fff;", "font-size: 15px", NULL} },
 									NULL

@@ -5,8 +5,12 @@
 #include "../main.h"
 
 const char *DOC_CSS[] = {
-    "margin: 10px auto;",
-    "width: 70%;", 
+    "margin-top: 55px;",
+    "position: absolute;",
+    "top: 50%;",
+    "left: 50%;",
+    "transform: translate(-50%, -50%);",
+    "width: 90%;", 
     "height: 85%;", 
     "border: 2px solid white;", 
     "border-radius: 10px;",
@@ -14,20 +18,21 @@ const char *DOC_CSS[] = {
 };
 
 const char *SIDE_BAR_CSS[] = {
-    "top: 0%;",
-    "left: 0%;",
+    "position: absolute;",
+    "top: 0;",
+    "left: 0;",
     "border: none;",
     "border-right: 2px solid white;",
     "border-top-right-radius: 5px;",
     "border-bottom-right-radius: 5px;",
     "width: 230px;",
-    "height: 90%;",
-    "padding-top: 0%;",
+    "height: 100%;", // Ensures full height
     NULL
 };
 
 const char *DOC_TITLE[] = {
     "margin-left: 10px;",
+    "text-decoration: none;",
     NULL
 };
 
@@ -38,6 +43,7 @@ const char *DOC_OPT[] = {
     "margin-top: 10px;",
     "display: flex;", 
     "align-items: center;",
+    "text-decoration: none;",
     NULL
 };
 
@@ -50,13 +56,19 @@ String DesignDoc(cWS *web, cWR *r, WebRoute *route, int socket) {
 			&(Control){ .Tag = DIV_TAG, .CSS = (char **)DOC_CSS, .SubControls = (void *[]){
                 &(Control){ .Tag = DIV_TAG, .CSS = (char **)SIDE_BAR_CSS, .SubControls = (void *[]){
                     &(Control){ .Tag = H1_TAG, .CSS = (char **)DOC_TITLE, .Text = "Documentation" },
-                    &(Control){ .Tag = DIV_TAG, .CSS = (char **)DOC_OPT, .SubControls = (void *[]){
-                        &(Control){ .Tag = P_TAG, .CSS = (char *[]){"margin-left: 10px;", NULL}, .Text = "Introduction" },
-                        NULL,
+                    &(Control){ .Tag = A_TAG, .href="https://discord.gg/vuln", .CSS = (char *[]){"text-decoration: none;", "color: inherit;", NULL}, .SubControls = (void *[]){
+                        &(Control){ .Tag = DIV_TAG, .CSS = (char **)DOC_OPT, .SubControls = (void *[]){
+                            &(Control){ .Tag = P_TAG, .CSS = (char *[]){"margin-left: 10px;", NULL}, .Text = "Introduction" },
+                            NULL,
+                        }},
+                        NULL
                     }},
                     &(Control){ .Tag = DIV_TAG, .CSS = (char **)DOC_OPT, .SubControls = (void *[]){
-                        &(Control){ .Tag = P_TAG, .CSS = (char *[]){"margin-left: 10px;", NULL}, .Text = "Quick Start-up" },
-                        NULL,
+                        &(Control){ .Tag = A_TAG, .href="https://discord.gg/vuln", .CSS = (char *[]){"text-decoration: none;", "color: inherit;", NULL}, .SubControls = (void *[]){
+                            &(Control){ .Tag = P_TAG, .CSS = (char *[]){"margin-left: 10px;", NULL}, .Text = "Quick Start-up" },
+                            NULL,
+                        }},
+                        NULL
                     }},
                     NULL
                 }},
