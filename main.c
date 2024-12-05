@@ -23,7 +23,8 @@ int main() {
 			.Name 		= "index",
 			.Path 		= "/",
 			.Handler 	= IndexHandler,
-			.Generator 	= DesignIndex,
+			.Generator 	= LayoutInit,
+			.CSS 		= NULL,
 			.InlineCSS 	= 0
 		},
 		&(WebRoute){
@@ -31,6 +32,7 @@ int main() {
 			.Path 		= "/doc",
 			.Handler 	= DocHandler,
 			.Generator 	= DesignDoc,
+			.CSS 		= NULL,
 			.InlineCSS 	= 0
 		},
 		NULL
