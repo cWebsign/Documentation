@@ -9,7 +9,7 @@
 
 CSS *IndexCSS[] = {
 	&BODY_CSS,
-	&NAV_BAR,
+	&NAV_BAR_CSS,
 	&(CSS){ .Class = "COMING_SOON_CSS", .Selector = 1, .Data = (char *[]){
 			"position: fixed",
 			"top: 50%",

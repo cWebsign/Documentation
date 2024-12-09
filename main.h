@@ -7,7 +7,7 @@ extern Control header;
 extern Control NAV_BAR;
 
 /* Global CSS for all routes */
-extern CSS NAV_BAR;
+extern CSS NAV_BAR_CSS;
 
 // Non-Selector ( body {} )
 extern CSS BODY_CSS;

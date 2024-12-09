@@ -6,7 +6,7 @@
 
 CSS *InstallationCSS[] = {
 	&BODY_CSS,
-	&NAV_BAR,
+	&NAV_BAR_CSS,
 	&BODY_BOX,
 	&(CSS){ .Class = "TITLE_CSS", .Selector = 1, .Data = (char *[]){
 			"margin-left: 15px", 

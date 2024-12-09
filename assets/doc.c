@@ -9,7 +9,7 @@ char *GEN_HELLO_WORLD = NULL;
 
 CSS *DocCSS[] = {
 	&BODY_CSS,
-	&NAV_BAR,
+	&NAV_BAR_CSS,
 	&BODY_BOX,
 	&(CSS){ .Class = "SIDE_BAR_CSS", .Selector = 1, .Data = (char *[]){
 			"position: absolute",

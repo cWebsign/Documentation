@@ -62,7 +62,7 @@ Control NAV_BAR = (Control){ .Tag = DIV_TAG, .Class = "nav_bar_box", .SubControl
 *
 */
 
-CSS NAV_BAR = (CSS){ .Class = "NAV_BAR_BOX", .Selector = 1, .Data = (char *[]){
+CSS NAV_BAR_CSS = (CSS){ .Class = "NAV_BAR_BOX", .Selector = 1, .Data = (char *[]){
 	"margin: auto",
 	"float: flex",
 	"background-color: #000",
