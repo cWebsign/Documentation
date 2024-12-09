@@ -7,7 +7,17 @@
 #include <str.h>
 #include <Net/web.h>
 
-CSS *IndexCSS[];
+CSS **IndexCSS = NULL;
+
+Control ConstructHeader() {
+	/* Define a parent html/tag (Useful for DIVs) and the subcontrols to be in it */
+	Control header = (Control){ .Tag = HEAD_TAG, .SubControls = (void *[]){
+			&(Control){ .Tag = TITLE_TAG, .Text = "cLib+ | Websign Framework\0", },
+			NULL
+	}};
+
+	return header;
+}
 
 void LayoutInit(cWS *web, cWR *request, WebRoute *route, int socket) {
 	printf("Constructing CSS....\n");
@@ -63,31 +73,39 @@ void LayoutInit(cWS *web, cWR *request, WebRoute *route, int socket) {
 	};
 
 	printf("Constructing HTML....\n");
-	/* Define a parent html/tag (Useful for DIVs) and the subcontrols to be in it */
-	Control header = (Control){ .Tag = HEAD_TAG, .SubControls = (void *[]){
-			&(Control){ .Tag = TITLE_TAG, .Text = "cLib+ | Websign Framework\0", },
-			NULL
-	}};
+	Control header = ConstructHeader();
 
 	/* Construct the body */
 	Control coming_soon = (Control){ .Tag = BODY_TAG, .SubControls = (void *[]){
 			&(Control){ .Tag = DIV_TAG, .Class = "nav_bar_box", .SubControls = (void *[]){
 				&(Control){ .Tag = H1_TAG, .Class = "TITLE_CSS", .Text = "cLib+" },
-				&(Control){ .Tag = DIV_TAG, .Class = "NAV_BTN_BOX", .SubControls = (void *[]){
-						&(Control){ .Tag = P_TAG, .Text = "Home" },
-						NULL
+				&(Control){ .Tag = A_TAG, .href = "/", .SubControls = (void *[]){
+					&(Control){ .Tag = DIV_TAG, .Class = "NAV_BTN_BOX", .SubControls = (void *[]){
+							&(Control){ .Tag = P_TAG, .Text = "Home" },
+							NULL
+					}},
+					NULL
 				}},
-				&(Control){ .Tag = DIV_TAG, .Class = "NAV_BTN_BOX", .SubControls = (void *[]){
-						&(Control){ .Tag = P_TAG, .Text = "Installation" },
-						NULL
+				&(Control){ .Tag = A_TAG, .href = "/doc", .SubControls = (void *[]){
+					&(Control){ .Tag = DIV_TAG, .Class = "NAV_BTN_BOX", .SubControls = (void *[]){
+							&(Control){ .Tag = P_TAG, .Text = "Installation" },
+							NULL
+					}},
+					NULL
 				}},
-				&(Control){ .Tag = DIV_TAG, .Class = "NAV_BTN_BOX", .SubControls = (void *[]){
-						&(Control){ .Tag = P_TAG, .Text = "Doc" },
-						NULL
+				&(Control){ .Tag = A_TAG, .href = "/doc", .SubControls = (void *[]){
+					&(Control){ .Tag = DIV_TAG, .Class = "NAV_BTN_BOX", .SubControls = (void *[]){
+							&(Control){ .Tag = P_TAG, .Text = "Doc" },
+							NULL
+					}},
+					NULL
 				}},
-				&(Control){ .Tag = DIV_TAG, .Class = "NAV_BTN_BOX", .SubControls = (void *[]){
-						&(Control){ .Tag = P_TAG, .Text = "FAQ" },
-						NULL
+				&(Control){ .Tag = A_TAG, .href = "/faq", .SubControls = (void *[]){
+					&(Control){ .Tag = DIV_TAG, .Class = "NAV_BTN_BOX", .SubControls = (void *[]){
+							&(Control){ .Tag = P_TAG, .Text = "FAQ" },
+							NULL
+					}},
+					NULL
 				}},
 				NULL
 			}},

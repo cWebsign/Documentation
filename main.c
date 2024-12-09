@@ -17,15 +17,14 @@ int main() {
 	if(!api)
 		err_n_exit("[ x ] Error, Unable to start web server....!\n");
 
-	api->CFG.Err404 = "Err404";
+	api->CFG.Err404 = "Err404\n\n";
 	AddRoutes(api, (WebRoute *[]){
 		&(WebRoute){
 			.Name 		= "index",
 			.Path 		= "/",
 			.Handler 	= IndexHandler,
 			.Generator 	= LayoutInit,
-			.CSS 		= NULL,
-			.InlineCSS 	= 0
+			.CSS 		= IndexCSS,
 		},
 		&(WebRoute){
 			.Name 		= "documentation",
@@ -33,7 +32,6 @@ int main() {
 			.Handler 	= DocHandler,
 			.Generator 	= DesignDoc,
 			.CSS 		= NULL,
-			.InlineCSS 	= 0
 		},
 		NULL
 	});
