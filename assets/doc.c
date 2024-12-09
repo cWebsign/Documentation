@@ -103,7 +103,7 @@ void DesignDoc(cWS *web, cWR *r, WebRoute *route, int socket) {
 					}},
 					NULL
 				}},
-				&(Control){ .Tag = A_TAG, .href = "/doc", .SubControls = (void *[]){
+				&(Control){ .Tag = A_TAG, .href = "/install", .SubControls = (void *[]){
 					&(Control){ .Tag = DIV_TAG, .Class = "NAV_BTN_BOX", .SubControls = (void *[]){
 							&(Control){ .Tag = P_TAG, .Text = "Installation" },
 							NULL
