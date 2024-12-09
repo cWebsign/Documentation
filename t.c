@@ -8,34 +8,30 @@
 #include "main.h"
 
 String IP;
-
 void err_n_exit(const char *msg) { printf("%s\n", msg); exit(0); }
+
+void IndexHandler(cWS *web, cWR *r, WebRoute *route, int socket) {
+	Map new_headers = NewMap();
+    new_headers.Append(&new_headers, "Content-Type", "text/html; charset=UTF-8");
+    new_headers.Append(&new_headers, "Connection", "close");
+
+	SendResponse(web, socket, OK, new_headers, ((Map){}), "Hello World!");
+}
 
 int main() {
 	IP = NewString("");
 	cWS *api = StartWebServer(IP, 80, 0);
-	if(!api)
+	if(!api) {
+	    api->Destruct(api);
 		err_n_exit("[ x ] Error, Unable to start web server....!\n");
+    }
 
 	api->CFG.Err404 = "Err404\n\n";
 	AddRoutes(api, (WebRoute *[]){
 		&(WebRoute){
 			.Name 		= "index",
 			.Path 		= "/",
-			.Handler 	= IndexHandler,
-			.Generator 	= LayoutInit
-		},
-		&(WebRoute){
-			.Name 		= "documentation",
-			.Path 		= "/doc",
-			.Handler 	= DocHandler,
-			.Generator 	= DesignDoc
-		},
-		&(WebRoute){
-			.Name 		= "installation",
-			.Path 		= "/install",
-			.Handler	= InstallHandler,
-			.Generator 	= DesignInstallation
+			.Handler 	= IndexHandler
 		},
 		NULL
 	});
