@@ -70,24 +70,26 @@ CSS NAV_BAR_CSS = (CSS){ .Class = "NAV_BAR_BOX", .Selector = 1, .Data = (char *[
 	"width: 800px",
 	"border: 2px solid white",
 	"border-radius: 15px",
+    "position: relative",
+    "z-index: 2",
 	NULL
 }};
 
 // Non-Selector ( body {} )
 CSS BODY_CSS = (CSS){ .Class = "body", .Data = (char *[]){
-    "position: relative",
 	"background-color: #000", 
 	"color: #fff", 
 	NULL 
 }};
 
 CSS BODY_BOX = (CSS){ .Class = "BODY_BOX", .Selector = 1, .Data = (char *[]){
-    "margin-top: 55px",
+    "margin-top: 30px",
     "position: absolute",
     "top: 50%",
     "left: 50%",
     "transform: translate(-50%, -50%)",
     "width: 90%",
+    "height: 80%",
     "padding-bottom: 10px",
     "border: 2px solid white",
     "border-radius: 10px",
