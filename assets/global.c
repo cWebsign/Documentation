@@ -83,16 +83,19 @@ CSS BODY_CSS = (CSS){ .Class = "body", .Data = (char *[]){
 }};
 
 CSS BODY_BOX = (CSS){ .Class = "BODY_BOX", .Selector = 1, .Data = (char *[]){
-    "margin-top: 30px",
-    "position: absolute",
+    "position: relative",
     "top: 50%",
     "left: 50%",
     "transform: translate(-50%, -50%)",
     "width: 90%",
-    "height: 80%",
+    "height: 75%",
     "padding-bottom: 10px",
     "border: 2px solid white",
     "border-radius: 10px",
+    "overflow-y: scroll",      
+    "overflow-x: hidden",      
+    "scrollbar-width: none",   
+    "-ms-overflow-style: none",
 	NULL
 }};
 
