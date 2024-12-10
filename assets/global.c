@@ -75,6 +75,17 @@ CSS NAV_BAR_CSS = (CSS){ .Class = "NAV_BAR_BOX", .Selector = 1, .Data = (char *[
 	NULL
 }};
 
+CSS NAV_BTN_BOX_CSS = (CSS){ .Class = "NAV_BTN_BOX", .Selector = 1, .Data = (char *[]){
+	"color: #fff",
+	"margin-right: 5px",
+    "border: 2px solid white",
+	"border-radius: 15px",
+	"text-align: center",
+	"width: 100px",
+	"display: inline-block",
+	NULL
+}};
+
 // Non-Selector ( body {} )
 CSS BODY_CSS = (CSS){ .Class = "body", .Data = (char *[]){
 	"background-color: #000", 
@@ -99,6 +110,17 @@ CSS BODY_BOX = (CSS){ .Class = "BODY_BOX", .Selector = 1, .Data = (char *[]){
 	NULL
 }};
 
+
+CSS TITLE_CSS = (CSS){ .Class = "TITLE_CSS", .Selector = 1, .Data = (char *[]){
+	"margin-left: 15px", 
+	"margin-right: 10px",
+	"background-color: #000", 
+	"color: #fff", 
+	"display: inline-block",
+	"vertical-align: middle",
+	NULL
+}};
+
 CSS CODE_DISPLAY_CSS = (CSS){ .Class = "code_display", .Selector = 1, .Data = (char *[]) {
     "width: 95%",
     "padding: 2px",
@@ -115,8 +137,35 @@ CSS CODE_DISPLAY_HOVER_CSS = (CSS){ .Class = "code_display:hover", .Selector = 1
     NULL
 }};
 
+CSS DOC_CODE_CSS = (CSS){ .Class = "doc_code_display", .Selector = 1, .Data = (char *[]) {
+    "margin-left: 260px",
+    "margin-right: 30px",
+    "padding: 2px",
+    "background-color: #171717",
+    "color: #fff",
+    "border: 2px solid white",
+    "transition: 2s",
+    "max-height: 200px",
+    "overflow-y: auto",
+    "white-space: pre-wrap",
+    "word-wrap: break-word",
+    NULL
+}};
+
+CSS DOC_CODE_HOVER_CSS = (CSS){ .Class = "doc_code_display:hover", .Selector = 1, .Data = (char *[]){
+    "border-color: #ff0000",
+    NULL
+}};
+
 CSS PAGE_TITLE_DISPLAY = (CSS){ .Class = "page_title_display", .Selector = 1, .Data = (char *[]) {
     "margin-top: 25px",
     "margin-left: 2%",
     NULL
 }};
+
+CSS DOC__TEXT_CSS = (CSS){ .Class = "doc__txt", .Selector = 1, .Data = (char *[]){"margin-top: 25px;", "margin-left: 260px", NULL}},
+CSS CODE__TEXT_CSS = (CSS){ .Class = "code__text", .Selector = 1, .Data = (char *[]){
+        "margin-left: 2px",
+        NULL
+    }
+}

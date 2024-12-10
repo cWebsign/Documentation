@@ -13,9 +13,17 @@ extern CSS NAV_BAR_CSS;
 extern CSS BODY_CSS;
 extern CSS BODY_BOX;
 
+extern CSS TITLE_CSS;
+
+extern CSS DOC_CODE_CSS;
+extern CSS DOC_CODE_HOVER_CSS;
+
 extern CSS CODE_DISPLAY_CSS;
 extern CSS CODE_DISPLAY_HOVER_CSS;
 extern CSS PAGE_TITLE_DISPLAY;
+
+extern CSS DOC__TEXT_CSS;
+extern CSS CODE__TEXT_CSS;
 
 Control ConstructHeader();
 

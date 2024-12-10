@@ -10,6 +10,7 @@
 CSS *IndexCSS[] = {
 	&BODY_CSS,
 	&NAV_BAR_CSS,
+	&NAV_BTN_BOX_CSS,
 	&(CSS){ .Class = "COMING_SOON_CSS", .Selector = 1, .Data = (char *[]){
 			"position: fixed",
 			"top: 50%",
@@ -26,17 +27,6 @@ CSS *IndexCSS[] = {
 			"color: #fff", 
 			"display: inline-block",
 			"vertical-align: middle",
-			NULL
-		}
-	},
-	&(CSS){ .Class = "NAV_BTN_BOX", .Selector = 1, .Data = (char *[]){
-			"color: #fff",
-			"margin-right: 5px",
-			"border: 2px solid white",
-			"border-radius: 15px",
-			"text-align: center",
-			"width: 100px",
-			"display: inline-block",
 			NULL
 		}
 	},

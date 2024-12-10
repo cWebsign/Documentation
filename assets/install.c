@@ -7,28 +7,9 @@
 CSS *InstallationCSS[] = {
 	&BODY_CSS,
 	&NAV_BAR_CSS,
+	&NAV_BTN_BOX_CSS,
 	&BODY_BOX,
-	&(CSS){ .Class = "TITLE_CSS", .Selector = 1, .Data = (char *[]){
-			"margin-left: 15px", 
-			"margin-right: 10px",
-			"background-color: #000", 
-			"color: #fff", 
-			"display: inline-block",
-			"vertical-align: middle",
-			NULL
-		}
-	},
-	&(CSS){ .Class = "NAV_BTN_BOX", .Selector = 1, .Data = (char *[]){
-			"color: #fff",
-			"margin-right: 5px",
-			"border: 2px solid white",
-			"border-radius: 15px",
-			"text-align: center",
-			"width: 100px",
-			"display: inline-block",
-			NULL
-		}
-	},
+    &TITLE_CSS,
     &(CSS){ .Class = "code_display", .Selector = 1, .Data = (char *[]) {
             "margin-left: 22px",
             "margin-bottom: 15px",
@@ -38,7 +19,7 @@ CSS *InstallationCSS[] = {
             "color: #fff",
             "border: 2px solid white",
             "transition: 2s",
-            "max-height: 20px",
+            "max-height: 250px",
             "overflow-y: auto",
             "white-space: pre-wrap",
             "word-wrap: break-word",

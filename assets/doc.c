@@ -10,6 +10,7 @@ char *GEN_HELLO_WORLD = NULL;
 CSS *DocCSS[] = {
 	&BODY_CSS,
 	&NAV_BAR_CSS,
+	&NAV_BTN_BOX_CSS,
 	&BODY_BOX,
 	&(CSS){ .Class = "SIDE_BAR_CSS", .Selector = 1, .Data = (char *[]){
 			"position: absolute",
@@ -44,53 +45,11 @@ CSS *DocCSS[] = {
 		}
 	},
     &(CSS){ .Class = "DOC_OPT:hover", .Selector = 1, .Data = (char *[]){ "background-color: #fff", "color: #191919", NULL }},
-	&(CSS){ .Class = "TITLE_CSS", .Selector = 1, .Data = (char *[]){
-			"margin-left: 15px", 
-			"margin-right: 10px",
-			"background-color: #000", 
-			"color: #fff", 
-			"display: inline-block",
-			"vertical-align: middle",
-			NULL
-		}
-	},
-	&(CSS){ .Class = "NAV_BTN_BOX", .Selector = 1, .Data = (char *[]){
-			"color: #fff",
-			"margin-right: 5px",
-			"border: 2px solid white",
-			"border-radius: 15px",
-			"text-align: center",
-			"width: 100px",
-			"display: inline-block",
-			NULL
-		}
-	},
-    &(CSS){ .Class = "doc_code_display", .Selector = 1, .Data = (char *[]) {
-            "margin-left: 260px",
-            "margin-right: 30px",
-            "padding: 2px",
-            "background-color: #171717",
-            "color: #fff",
-            "border: 2px solid white",
-            "transition: 2s",
-            "max-height: 200px",
-            "overflow-y: auto",
-            "white-space: pre-wrap",
-            "word-wrap: break-word",
-            NULL
-        }
-    },
-    &(CSS){ .Class = "doc_code_display:hover", .Selector = 1, .Data = (char *[]){
-            "border-color: #ff0000",
-            NULL
-        }
-    },
-    &(CSS){ .Class = "doc__txt", .Selector = 1, .Data = (char *[]){"margin-top: 25px;", "margin-left: 260px", NULL}},
-    &(CSS){ .Class = "code__text", .Selector = 1, .Data = (char *[]){
-            "margin-left: 2px",
-            NULL
-        }
-    },
+    &TITLE_CSS,
+    &DOC_CODE_CSS,
+    &DOC_CODE_HOVER_CSS,
+    &DOC__TEXT_CSS,
+    &CODE__TEXT_CSS,
     &CODE_DISPLAY_CSS,
     &CODE_DISPLAY_HOVER_CSS,
     &PAGE_TITLE_DISPLAY,
