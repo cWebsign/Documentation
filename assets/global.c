@@ -54,7 +54,7 @@ Control NAV_BAR = (Control){ .Tag = DIV_TAG, .Class = "nav_bar_box", .SubControl
 	NULL
 }};
 
-Control SIDEBAR_CSS = (Control){ .Tag = DIV_TAG, .Class = "SIDE_BAR_CSS", .SubControls = (void *[]){
+Control SIDEBAR = (Control){ .Tag = DIV_TAG, .Class = "SIDE_BAR_CSS", .SubControls = (void *[]){
     &(Control){ .Tag = A_TAG, .href="/doc", .CSS = (char *[]){"text-decoration: none;", "color: inherit;", NULL}, .SubControls = (void *[]){
         &(Control){ .Tag = H1_TAG, .Class = "DOC_TITLE", .Text = "Documentation" },
         NULL

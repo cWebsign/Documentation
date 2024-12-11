@@ -5,7 +5,7 @@
 /* Global Controls for all routes */
 extern Control header;
 extern Control NAV_BAR;
-extern Control SIDEBAR_CSS;
+extern Control SIDEBAR;
 
 /* Global CSS for all routes */
 extern CSS NAV_BAR_CSS;

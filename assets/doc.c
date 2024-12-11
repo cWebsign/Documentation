@@ -11,7 +11,7 @@ char *GEN_HELLO_WORLD = NULL;
 Control DOC_BODY = (Control){ .Tag = BODY_TAG, .Class = "BODY_CSS", .SubControls = (void *[]){
 	&NAV_BAR,
 	&(Control){ .Tag = DIV_TAG, .Class = "BODY_BOX", .SubControls = (void *[]){
-        &SIDEBAR_CSS,
+        &SIDEBAR,
         &(Control){ .Tag = DIV_TAG, .Class = "doc_body", .SubControls = (void *[]){
             &(Control){ .Tag = H1_TAG, .CSS = (char *[]){"margin-left: 20px", NULL}, .Text = "Introduction" },
             &(Control){ .Tag = A_TAG, .CSS = (char *[]){"text-decoration: none", NULL}, .href="/install", .SubControls = (void *[]){
