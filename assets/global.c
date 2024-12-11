@@ -54,6 +54,78 @@ Control NAV_BAR = (Control){ .Tag = DIV_TAG, .Class = "nav_bar_box", .SubControl
 	NULL
 }};
 
+Control SIDEBAR_CSS = (Control){ .Tag = DIV_TAG, .Class = "SIDE_BAR_CSS", .SubControls = (void *[]){
+    &(Control){ .Tag = A_TAG, .href="/doc", .CSS = (char *[]){"text-decoration: none;", "color: inherit;", NULL}, .SubControls = (void *[]){
+        &(Control){ .Tag = H1_TAG, .Class = "DOC_TITLE", .Text = "Documentation" },
+        NULL
+    }},
+    &(Control){ .Tag = A_TAG, .href="/doc", .CSS = (char *[]){"text-decoration: none;", "color: inherit;", NULL}, .SubControls = (void *[]){
+        &(Control){ .Tag = DIV_TAG, .Class = "DOC_OPT", .SubControls = (void *[]){
+            &(Control){ .Tag = P_TAG, .CSS = (char *[]){"margin-left: 10px;", NULL}, .Text = "Introduction" },
+            NULL,
+        }},
+        NULL
+    }},
+    &(Control){ .Tag = A_TAG, .href="#", .CSS = (char *[]){"text-decoration: none;", "color: inherit;", NULL}, .SubControls = (void *[]){
+        &(Control){ .Tag = DIV_TAG, .Class = "DOC_OPT", .SubControls = (void *[]){
+            &(Control){ .Tag = P_TAG, .CSS = (char *[]){"margin-left: 10px;", NULL}, .Text = "Getting started" },
+            NULL,
+        }},
+        NULL
+    }},
+    &(Control){ .Tag = H3_TAG, .CSS = (char *[]){"margin-left: 10px;", NULL}, .Text = "Extended Standard Lib" },
+    &(Control){ .Tag = A_TAG, .href="/doc/string", .CSS = (char *[]){"text-decoration: none;", "color: inherit;", NULL}, .SubControls = (void *[]){
+        &(Control){ .Tag = DIV_TAG, .Class = "DOC_OPT", .SubControls = (void *[]){
+            &(Control){ .Tag = P_TAG, .CSS = (char *[]){"margin-left: 10px;", NULL}, .Text = "String" },
+            NULL,
+        }},
+        NULL
+    }},
+    &(Control){ .Tag = A_TAG, .href="#", .CSS = (char *[]){"text-decoration: none;", "color: inherit;", NULL}, .SubControls = (void *[]){
+        &(Control){ .Tag = DIV_TAG, .Class = "DOC_OPT", .SubControls = (void *[]){
+            &(Control){ .Tag = P_TAG, .CSS = (char *[]){"margin-left: 10px;", NULL}, .Text = "Array" },
+            NULL,
+        }},
+        NULL
+    }},
+    &(Control){ .Tag = A_TAG, .href="#", .CSS = (char *[]){"text-decoration: none;", "color: inherit;", NULL}, .SubControls = (void *[]){
+        &(Control){ .Tag = DIV_TAG, .Class = "DOC_OPT", .SubControls = (void *[]){
+            &(Control){ .Tag = P_TAG, .CSS = (char *[]){"margin-left: 10px;", NULL}, .Text = "Map" },
+            NULL,
+        }},
+        NULL
+    }},
+    &(Control){ .Tag = A_TAG, .href="#", .CSS = (char *[]){"text-decoration: none;", "color: inherit;", NULL}, .SubControls = (void *[]){
+        &(Control){ .Tag = DIV_TAG, .Class = "DOC_OPT", .SubControls = (void *[]){
+            &(Control){ .Tag = P_TAG, .CSS = (char *[]){"margin-left: 10px;", NULL}, .Text = "GC" },
+            NULL,
+        }},
+        NULL
+    }},
+    &(Control){ .Tag = A_TAG, .href="#", .CSS = (char *[]){"text-decoration: none;", "color: inherit;", NULL}, .SubControls = (void *[]){
+        &(Control){ .Tag = DIV_TAG, .Class = "DOC_OPT", .SubControls = (void *[]){
+            &(Control){ .Tag = P_TAG, .CSS = (char *[]){"margin-left: 10px;", NULL}, .Text = "Thread" },
+            NULL,
+        }},
+        NULL
+    }},
+    &(Control){ .Tag = A_TAG, .href="#", .CSS = (char *[]){"text-decoration: none;", "color: inherit;", NULL}, .SubControls = (void *[]){
+        &(Control){ .Tag = DIV_TAG, .Class = "DOC_OPT", .SubControls = (void *[]){
+            &(Control){ .Tag = P_TAG, .CSS = (char *[]){"margin-left: 10px;", NULL}, .Text = "OS" },
+            NULL,
+        }},
+        NULL
+    }},
+    &(Control){ .Tag = A_TAG, .href="#", .CSS = (char *[]){"text-decoration: none;", "color: inherit;", NULL}, .SubControls = (void *[]){
+        &(Control){ .Tag = DIV_TAG, .Class = "DOC_OPT", .SubControls = (void *[]){
+            &(Control){ .Tag = P_TAG, .CSS = (char *[]){"margin-left: 10px;", NULL}, .Text = "Net" },
+            NULL,
+        }},
+        NULL
+    }},
+    NULL
+}};
+
 
 /*
 *
@@ -138,12 +210,14 @@ CSS CODE_DISPLAY_HOVER_CSS = (CSS){ .Class = "code_display:hover", .Selector = 1
 }};
 
 CSS DOC_CODE_CSS = (CSS){ .Class = "doc_code_display", .Selector = 1, .Data = (char *[]) {
-    "margin-left: 260px",
+	"box-sizing: border-box",
+    "margin-left: 12px",
     "margin-right: 30px",
     "padding: 2px",
     "background-color: #171717",
     "color: #fff",
-    "border: 2px solid white",
+    "border: 1px solid white",
+	"border-radius: 5px",
     "transition: 2s",
     "max-height: 200px",
     "overflow-y: auto",
@@ -163,14 +237,15 @@ CSS PAGE_TITLE_DISPLAY = (CSS){ .Class = "page_title_display", .Selector = 1, .D
     NULL
 }};
 
-CSS DOC__TEXT_CSS = (CSS){ .Class = "doc__txt", .Selector = 1, .Data = (char *[]){"margin-top: 25px;", "margin-left: 260px", NULL}};
+CSS DOC__TEXT_CSS = (CSS){ .Class = "doc__txt", .Selector = 1, .Data = (char *[]){"margin-top: 25px;", "margin-left: 22px", NULL}};
 CSS CODE__TEXT_CSS = (CSS){ .Class = "code__text", .Selector = 1, .Data = (char *[]){
     "margin-left: 2px",
     NULL
 }};
 
 CSS SIDE_BAR_CSS = (CSS){ .Class = "SIDE_BAR_CSS", .Selector = 1, .Data = (char *[]){
-	"position: absolute",
+	"position: fixed",
+	"z-index: 1000",
     "top: 0",
     "left: 0",
     "border: none",
@@ -180,6 +255,14 @@ CSS SIDE_BAR_CSS = (CSS){ .Class = "SIDE_BAR_CSS", .Selector = 1, .Data = (char 
     "width: 230px",
     "height: 100%",
     "display: inline-block",
+	NULL
+}};
+
+CSS DOC_BODY_CSS = (CSS){ .Class = "doc_body", .Selector = 1, .Data = (char *[]){
+	"height: 100%",
+	"width: 85%",
+	
+	"margin-left: 230px",
 	NULL
 }};
 
@@ -220,5 +303,6 @@ CSS *DocCSS[] = {
     &CODE_DISPLAY_CSS,
     &CODE_DISPLAY_HOVER_CSS,
     &PAGE_TITLE_DISPLAY,
+	&DOC_BODY_CSS,
 	NULL
 };

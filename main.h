@@ -19,6 +19,7 @@ extern CSS TITLE_CSS;
 
 extern CSS SIDE_BAR_CSS;
 
+extern CSS DOC_BODY_CSS;
 extern CSS DOC_CODE_CSS;
 extern CSS DOC_CODE_HOVER_CSS;
 
