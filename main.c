@@ -37,6 +37,12 @@ int main() {
 			.Handler	= InstallHandler,
 			.Generator 	= DesignInstallation
 		},
+		&(WebRoute){
+			.Name 		= "String Doc",
+			.Path 		= "/doc/string",
+			.Handler	= StringDocHandler,
+			.Generator	= DesignStringDoc
+		},
 		NULL
 	});
 

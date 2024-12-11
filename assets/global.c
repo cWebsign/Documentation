@@ -163,9 +163,62 @@ CSS PAGE_TITLE_DISPLAY = (CSS){ .Class = "page_title_display", .Selector = 1, .D
     NULL
 }};
 
-CSS DOC__TEXT_CSS = (CSS){ .Class = "doc__txt", .Selector = 1, .Data = (char *[]){"margin-top: 25px;", "margin-left: 260px", NULL}},
+CSS DOC__TEXT_CSS = (CSS){ .Class = "doc__txt", .Selector = 1, .Data = (char *[]){"margin-top: 25px;", "margin-left: 260px", NULL}};
 CSS CODE__TEXT_CSS = (CSS){ .Class = "code__text", .Selector = 1, .Data = (char *[]){
-        "margin-left: 2px",
-        NULL
-    }
-}
+    "margin-left: 2px",
+    NULL
+}};
+
+CSS SIDE_BAR_CSS = (CSS){ .Class = "SIDE_BAR_CSS", .Selector = 1, .Data = (char *[]){
+	"position: absolute",
+    "top: 0",
+    "left: 0",
+    "border: none",
+    "border-right: 2px solid white",
+    "border-top-right-radius: 5px",
+    "border-bottom-right-radius: 5px",
+    "width: 230px",
+    "height: 100%",
+    "display: inline-block",
+	NULL
+}};
+
+CSS DOC_TITLE_CSS = (CSS){ .Class = "DOC_TITLE", .Selector = 1, .Data = (char *[]){
+    "margin-left: 10px",
+    "text-decoration: none",
+	NULL
+}};
+
+CSS DOC_OPT_CSS = (CSS){ .Class = "DOC_OPT", .Selector = 1, .Data = (char *[]){
+    "background-color: #191919",
+    "height: 30px",
+    "width: 100%",
+    "margin-top: 10px",
+    "display: flex", 
+    "align-items: center",
+    "text-decoration: none",
+    "transition: 1s",
+	NULL
+}};
+
+CSS DOC_OPT_HOVER_CSS = (CSS){ .Class = "DOC_OPT:hover", .Selector = 1, .Data = (char *[]){ "background-color: #fff", "color: #191919", NULL }};
+
+CSS *DocCSS[] = {
+	&BODY_CSS,
+	&NAV_BAR_CSS,
+	&NAV_BTN_BOX_CSS,
+	&BODY_BOX,
+	&SIDE_BAR_CSS,
+	&DOC_TITLE_CSS,
+    &DOC_OPT_CSS,
+    &DOC_OPT_HOVER_CSS,
+    &TITLE_CSS,
+    &DOC_CODE_CSS,
+    &DOC_CODE_HOVER_CSS,
+    &DOC__TEXT_CSS,
+    &CODE__TEXT_CSS,
+    &CODE_DISPLAY_CSS,
+    &CODE_DISPLAY_HOVER_CSS,
+    &PAGE_TITLE_DISPLAY,
+	NULL
+};
