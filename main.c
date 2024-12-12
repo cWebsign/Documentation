@@ -23,25 +23,30 @@ int main() {
 			.Name 		= "index",
 			.Path 		= "/",
 			.Handler 	= IndexHandler,
-			.Generator 	= LayoutInit
+			.Generator 	= LayoutInit,
+			.Controls 	= (Control *[]){&header, &COMING_SOON, NULL},
+			.ReadOnly 	= 0
 		},
 		&(WebRoute){
 			.Name 		= "documentation",
 			.Path 		= "/doc",
 			.Handler 	= DocHandler,
-			.Generator 	= DesignDoc
+			.Generator 	= DesignDoc,
+			.ReadOnly 	= 0
 		},
 		&(WebRoute){
 			.Name 		= "installation",
 			.Path 		= "/install",
 			.Handler	= InstallHandler,
-			.Generator 	= DesignInstallation
+			.Generator 	= DesignInstallation,
+			.ReadOnly 	= 0
 		},
 		&(WebRoute){
 			.Name 		= "String Doc",
 			.Path 		= "/doc/string",
 			.Handler	= StringDocHandler,
-			.Generator	= DesignStringDoc
+			.Generator	= DesignStringDoc,
+			.ReadOnly 	= 0
 		},
 		NULL
 	});
@@ -49,7 +54,7 @@ int main() {
 	printf("Loaded %ld Routes...!\n", api->CFG.RouteCount);
 	api->Run(api, 999, NULL);
 
-	char *BUFFER[1024];
+	char *BUFFER[1024] = {0};
 	fgets((char *)&BUFFER, 1024, stdin);
 
 	api->Destruct(api);

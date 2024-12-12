@@ -7,11 +7,32 @@
 char *BASIC_HELLO_WORLD = NULL;
 char *GEN_HELLO_WORLD = NULL;
 
+CSS *DocCSS[] = {
+	&BODY_CSS,
+	&NAV_BAR_CSS,
+	&NAV_BTN_BOX_CSS,
+	&BODY_BOX,
+	&SIDE_BAR_CSS,
+	&DOC_TITLE_CSS,
+    &DOC_OPT_CSS,
+    &DOC_OPT_HOVER_CSS,
+    &TITLE_CSS,
+    &DOC_CODE_CSS,
+    &DOC_CODE_HOVER_CSS,
+    &DOC__TEXT_CSS,
+    &CODE__TEXT_CSS,
+    &CODE_DISPLAY_CSS,
+    &CODE_DISPLAY_HOVER_CSS,
+    &PAGE_TITLE_DISPLAY,
+	&DOC_BODY_CSS,
+	NULL
+};
+
 /* Construct the body */
 Control DOC_BODY = (Control){ .Tag = BODY_TAG, .Class = "BODY_CSS", .SubControls = (void *[]){
 	&NAV_BAR,
 	&(Control){ .Tag = DIV_TAG, .Class = "BODY_BOX", .SubControls = (void *[]){
-        &SIDEBAR,
+        &SIDE_BAR,
         &(Control){ .Tag = DIV_TAG, .Class = "doc_body", .SubControls = (void *[]){
             &(Control){ .Tag = H1_TAG, .CSS = (char *[]){"margin-left: 20px", NULL}, .Text = "Introduction" },
             &(Control){ .Tag = A_TAG, .CSS = (char *[]){"text-decoration: none", NULL}, .href="/install", .SubControls = (void *[]){
@@ -68,12 +89,22 @@ void DesignDoc(cWS *web, cWR *r, WebRoute *route, int socket) {
     fread(((Control *)((Control *)((Control *)((Control *)DOC_BODY.SubControls[1])->SubControls[1])->SubControls[5])->SubControls[0])->Text, sz, 1, gen_file.fd);
 
 	route->CSS = DocCSS;
-	route->Controls = (Control *[]){&header, &DOC_BODY, NULL};
+
+    Control **Template = (Control **)malloc(sizeof(Control *) * 3);
+    Template[0] = &header;
+    Template[1] = &DOC_BODY;
+    Template[2] = NULL;
+
+	route->Controls = Template;
 
     int chk = ConstructTemplate(route);
 	if(chk < 1)
 		printf("[ x ] Error\n");
 
     basic_file.Destruct(&basic_file); 
-    gen_file.Destruct(&gen_file);    
+    gen_file.Destruct(&gen_file);
+
+    free(Template[0]);
+    free(Template[1]);
+    free(Template);
 }

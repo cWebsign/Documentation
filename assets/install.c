@@ -32,7 +32,7 @@ CSS *InstallationCSS[] = {
     NULL
 };
 
-Control coming_soon = (Control){ .Tag = BODY_TAG, .Class = "BODY_CSS", .SubControls = (void *[]){
+Control coming_soon = (Control){ .Tag = BODY_TAG, .SubControls = (void *[]){
 	&NAV_BAR,
 	&(Control){ .Tag = DIV_TAG, .Class = "BODY_BOX", .SubControls = (void *[]){
         &(Control){ .Tag = H1_TAG, .Class = "page_title_display", .Text = "Installation" },

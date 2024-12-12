@@ -8,7 +8,7 @@
 Control STRING_DOC_BODY = (Control){ .Tag = BODY_TAG, .Class = "BODY_CSS", .SubControls = (void *[]){
 	&NAV_BAR,
 	&(Control){ .Tag = DIV_TAG, .Class = "BODY_BOX", .SubControls = (void *[]){
-        &SIDEBAR,
+        &SIDE_BAR,
         NULL
     }},
 	NULL,
