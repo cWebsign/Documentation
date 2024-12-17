@@ -35,8 +35,6 @@ extern CSS PAGE_TITLE_DISPLAY;
 extern CSS DOC__TEXT_CSS;
 extern CSS CODE__TEXT_CSS;
 
-Control ConstructHeader();
-
 /* [/] Handler && Designer */
 void LayoutInit(cWS *web, cWR *request, WebRoute *route, int socket);
 void IndexHandler(cWS *web, cWR *r, WebRoute *route, int socket);

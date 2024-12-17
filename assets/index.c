@@ -51,10 +51,8 @@ Control COMING_SOON = (Control){ .Tag = BODY_TAG, .SubControls = (void *[]){
 
 void LayoutInit(cWS *web, cWR *request, WebRoute *route, int socket) {
 	printf("Constructing HTML....\n");
-	route->CSS = IndexCSS;
-	route->Controls = (Control *[]){&header, &COMING_SOON, NULL};
 
-    int chk = ConstructTemplate(route);
+    int chk = ConstructTemplate(route, (Control *[]){&header, &COMING_SOON, NULL}, IndexCSS);
 	if(chk < 1)
 		printf("[ x ] Error\n");
 }

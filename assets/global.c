@@ -175,6 +175,7 @@ CSS BODY_BOX = (CSS){ .Class = "BODY_BOX", .Selector = 1, .Data = (char *[]){
     "padding-bottom: 10px",
     "border: 2px solid white",
     "border-radius: 10px",
+    "box-sizing: border-box",
 	NULL
 }};
 
@@ -192,7 +193,7 @@ CSS TITLE_CSS = (CSS){ .Class = "TITLE_CSS", .Selector = 1, .Data = (char *[]){
 CSS CODE_DISPLAY_CSS = (CSS){ .Class = "code_display", .Selector = 1, .Data = (char *[]) {
     "width: 95%",
     "padding: 2px",
-    "background-color: #171717",
+    "background-color: #191919",
     "color: #fff",
     "border: 2px solid white",
     "margin-left: 2%",
@@ -206,19 +207,24 @@ CSS CODE_DISPLAY_HOVER_CSS = (CSS){ .Class = "code_display:hover", .Selector = 1
 }};
 
 CSS DOC_CODE_CSS = (CSS){ .Class = "doc_code_display", .Selector = 1, .Data = (char *[]) {
-	"box-sizing: border-box",
-    "margin-left: 12px",
-    "margin-right: 30px",
-    "padding: 2px",
-    "background-color: #171717",
+    "position: relative",
+    "margin-left: 22px",
+    "margin-bottom: 15px",
+    "padding: 5px",
+    "margin-right: 10px",
+    "background-color: #191919",
     "color: #fff",
-    "border: 1px solid white",
-	"border-radius: 5px",
+    "border: 5px inset white",
     "transition: 2s",
-    "max-height: 200px",
+    "max-height: 250px",
+    "width: 90%",
+    "height: 150px",
+    "max-width: 100%",
+    "min-width: 300px",
     "overflow-y: auto",
     "white-space: pre-wrap",
     "word-wrap: break-word",
+    "box-sizing: border-box",
     NULL
 }};
 

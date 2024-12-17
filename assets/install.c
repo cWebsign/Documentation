@@ -47,11 +47,9 @@ Control coming_soon = (Control){ .Tag = BODY_TAG, .SubControls = (void *[]){
     }},
 	NULL,
 }};
-void DesignInstallation(cWS *web, cWR *request, WebRoute *route, int socket) {
-	route->CSS = InstallationCSS;
-	route->Controls = (Control *[]){&header, &coming_soon, NULL};
 
-    int chk = ConstructTemplate(route);
+void DesignInstallation(cWS *web, cWR *request, WebRoute *route, int socket) {
+    int chk = ConstructTemplate(route, (Control *[]){&header, &coming_soon, NULL}, InstallationCSS);
 	if(chk < 1)
 		printf("[ x ] Error\n");
 }

@@ -15,10 +15,7 @@ Control STRING_DOC_BODY = (Control){ .Tag = BODY_TAG, .Class = "BODY_CSS", .SubC
 }};
 
 void DesignStringDoc(cWS *web, cWR *request, WebRoute *route, int socket) {
-    route->CSS = DocCSS;
-	route->Controls = (Control *[]){&header, &STRING_DOC_BODY, NULL};
-
-    int chk = ConstructTemplate(route);
+    int chk = ConstructTemplate(route, (Control *[]){&header, &STRING_DOC_BODY, NULL}, DocCSS);
 	if(chk < 1)
 		printf("[ x ] Error\n");
 }

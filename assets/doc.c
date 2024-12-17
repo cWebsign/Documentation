@@ -88,23 +88,10 @@ void DesignDoc(cWS *web, cWR *r, WebRoute *route, int socket) {
     memset(((Control *)((Control *)((Control *)((Control *)DOC_BODY.SubControls[1])->SubControls[1])->SubControls[5])->SubControls[0])->Text, '\0', 4096);
     fread(((Control *)((Control *)((Control *)((Control *)DOC_BODY.SubControls[1])->SubControls[1])->SubControls[5])->SubControls[0])->Text, sz, 1, gen_file.fd);
 
-	route->CSS = DocCSS;
-
-    Control **Template = (Control **)malloc(sizeof(Control *) * 3);
-    Template[0] = &header;
-    Template[1] = &DOC_BODY;
-    Template[2] = NULL;
-
-	route->Controls = Template;
-
-    int chk = ConstructTemplate(route);
+    int chk = ConstructTemplate(route, (Control *[]){&header, &DOC_BODY, NULL}, DocCSS);
 	if(chk < 1)
 		printf("[ x ] Error\n");
 
     basic_file.Destruct(&basic_file); 
-    gen_file.Destruct(&gen_file);
-
-    free(Template[0]);
-    free(Template[1]);
-    free(Template);
+    gen_file.Destruct(&gen_file);    
 }
