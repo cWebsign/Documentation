@@ -51,9 +51,9 @@ void TestHandler(cWS *web, cWR *r, WebRoute *route, int socket) {
 		printf("HERE %s %ld\n", r->Body.data, r->Headers.idx);
 	}
 
-	for(int i = 0; i < r->Headers.idx; i++) {
-		printf("%s = > %s\n", (char *)((Key *)r->Headers.arr[i])->key, (char *)((Key *)r->Headers.arr[i])->value);
-	}
+	// for(int i = 0; i < r->Headers.idx; i++) {
+	// 	printf("%s = > %s\n", (char *)((Key *)r->Headers.arr[i])->key, (char *)((Key *)r->Headers.arr[i])->value);
+	// }
 
 	SendResponse(web, socket, OK, new_headers, ((Map){}), route->Template);
 }
