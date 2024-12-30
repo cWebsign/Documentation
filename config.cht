@@ -1,0 +1,45 @@
+{ Tag="body" }
+	{ Tag="div" class="nav_bar_box" }
+			{ Tag="h1" class="TITLE_CSS" href="cLib+" }
+
+			{ Tag="a" href="/" }
+					{ Tag="div" class="NAV_BTN_BOX" }
+							{ Tag="p" href="Home" }
+
+
+
+			{ Tag="a" href="/install" }
+					{ Tag="div" class="NAV_BTN_BOX" }
+							{ Tag="p" href="Installation" }
+
+
+
+			{ Tag="a" href="/doc" }
+					{ Tag="div" class="NAV_BTN_BOX" }
+							{ Tag="p" href="Doc" }
+
+
+
+			{ Tag="a" href="/faq" }
+					{ Tag="div" class="NAV_BTN_BOX" }
+							{ Tag="p" href="FAQ" }
+
+
+
+			{ Tag="a" href="https://github.com/clibplus/Net" }
+					{ Tag="div" class="NAV_BTN_BOX" }
+							{ Tag="p" href="Source Code" }
+
+
+
+
+	{ Tag="div" class="COMING_SOON_CSS" }
+			{ Tag="h1" href="cLib+ C Extension" }
+
+			{ Tag="a" href="https://discord.gg/4wJbTaRTHB" }
+					{ Tag="div" }
+							{ Tag="p" href="Join our discord for daily updates! Join Now" }
+
+
+
+
