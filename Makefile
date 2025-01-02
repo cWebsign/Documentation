@@ -12,4 +12,6 @@ dependencies:
 	ldconfig
 
 build:
-	gcc main.c -o main -lstr -larr -lmap -lweb -lwebcfg -lwebsign
+	gcc main.c src/*.c src/doc/*.c assets/*.c assets/doc/*.c -lwebsign -lstr -larr -lmap -lfile -g -g1 -ggdb
+
+	

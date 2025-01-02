@@ -7,48 +7,61 @@
 
 #include "main.h"
 
-String IP;
-
 void err_n_exit(const char *msg) { printf("%s\n", msg); exit(0); }
 
-void DesignTest(cWS *web, cWR *request, WebRoute *route, int socket) {
-	printf("Constructing HTML....\n");
-	
-	Control TEST_FORM = (Control){ .Tag = BODY_TAG, .SubControls = (void *[]){
-		&(Control){ .Tag = DIV_TAG, .SubControls = (void *[]){
-			&(Control){ .Tag = FORM_TAG, .ID = "test_form", .SubControls = (void *[]){
-				&(Control){ .Tag = INPUT_TAG, .Type = "text", .Data = "name=\"username\" value=\"Test\"" },
-				NULL
-			}},
-			&(Control){ .Tag = BUTTON_TAG, .OnClick = 1, .FormID = "test_form", .Text = "Submit"},
+Control TEST_FORM = (Control){ .Tag = BODY_TAG, .SubControls = (void *[]){
+	&(Control){ .Tag = DIV_TAG, .SubControls = (void *[]){
+		&(Control){ .Tag = FORM_TAG, .ID = "test_form", .SubControls = (void *[]){
+			&(Control){ .Tag = INPUT_TAG, .Type = "text", .Data = "name=\"username\" value=\"Test\"" },
 			NULL
 		}},
+		&(Control){ .Tag = BUTTON_TAG, .OnClick = 1, .FormID = "test_form", .Text = "Submit"},
 		NULL
-	}};
+	}},
+	NULL
+}};
 
-	Control Header = (Control){ .Tag = HEAD_TAG, .SubControls = (void *[]){
-		&(Control){ .Tag = TITLE_TAG, .Text = "Test Endpoint", .SubControls = NULL },
-		NULL
-	}};
+Control Header = (Control){ .Tag = HEAD_TAG, .SubControls = (void *[]){
+	&(Control){ .Tag = TITLE_TAG, .Text = "Test Endpoint", .SubControls = NULL },
+	NULL
+}};
 
-	Control *Controls[] = {
-		&Header,
-		&TEST_FORM,
-		NULL
-	};
+Control *Controls[] = {
+	&Header,
+	&TEST_FORM,
+	NULL
+};
+
+// void DesignTest(cWS *web, cWR *request, WebRoute *route, int socket) {
+// 	printf("Constructing HTML....\n");
 	
-    int chk = ConstructTemplate(route, Controls, NULL);
-	if(chk < 1)
-		printf("[ x ] Error\n");
+// 	Control TEST_FORM = (Control){ .Tag = BODY_TAG, .SubControls = (void *[]){
+// 		&(Control){ .Tag = DIV_TAG, .SubControls = (void *[]){
+// 			&(Control){ .Tag = FORM_TAG, .ID = "test_form", .SubControls = (void *[]){
+// 				&(Control){ .Tag = INPUT_TAG, .Type = "text", .Data = "name=\"username\" value=\"Test\"" },
+// 				NULL
+// 			}},
+// 			&(Control){ .Tag = BUTTON_TAG, .OnClick = 1, .FormID = "test_form", .Text = "Submit"},
+// 			NULL
+// 		}},
+// 		NULL
+// 	}};
 
-	String header_list = DumpControls(&Header, 0);
-	String form_list = DumpControls(&TEST_FORM, 0);
-	printf("%s\n", header_list.data);
-	printf("%s\n", form_list.data);
+// 	Control Header = (Control){ .Tag = HEAD_TAG, .SubControls = (void *[]){
+// 		&(Control){ .Tag = TITLE_TAG, .Text = "Test Endpoint", .SubControls = NULL },
+// 		NULL
+// 	}};
 
-	header_list.Destruct(&header_list);
-	form_list.Destruct(&form_list);
-}
+// 	Control *Controls[] = {
+// 		&Header,
+// 		&TEST_FORM,
+// 		NULL
+// 	};
+	
+//     int chk = ConstructTemplate(route, Controls, NULL);
+// 	if(chk < 1)
+// 		printf("[ x ] Error\n");
+// }
 
 void TestHandler(cWS *web, cWR *r, WebRoute *route, int socket) {
 	Map new_headers = NewMap();
@@ -76,7 +89,7 @@ void TestHandler(cWS *web, cWR *r, WebRoute *route, int socket) {
 }
 
 int main() {
-	IP = NewString("");
+	String IP = NewString(NULL);
 	cWS *api = StartWebServer(IP, 80, 0);
 	if(!api)
 		err_n_exit("[ x ] Error, Unable to start web server....!\n");
@@ -111,19 +124,11 @@ int main() {
 			.Name 		= "Test Page",
 			.Path 		= "/test",
 			.Handler	= TestHandler,
-			.Generator 	= DesignTest
-
+			.Generator 	= NULL
 		},
 		NULL
 	});
-	// AddDynamicHandler(api);
-	
-    File t = Openfile("test.txt", FILE_WRITE_READ);
-	String control_list = DumpControls(&COMING_SOON, 0);
-	
-    t.Write(&t, control_list.data);
-	t.Destruct(&t);
-	control_list.Destruct(&control_list);
+	ConstructTemplate(api->CFG.Routes[4], Controls, NULL);
 
 	printf("Loaded %ld Routes...!\n", api->CFG.RouteCount);
 	api->Run(api, 999, NULL);
